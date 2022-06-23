@@ -7,6 +7,6 @@ In this program I wrote a complete computer algorithm that simulates a computer 
   <li>If the computer is currently being used, then an arriving task waits in a Queue until a computer becomes available.</li>
   <li>The task arrival time and service time follows exponential distribution. The average service time is 25 sec and the average interarrival time is 20 sec.</li>
   <li>The average waiting time for dequeued tasks is calculated at the end.</li>
-  <li>Plot that visualizing the distribution for both service time and inter arrival time</li>
+  <li>Plot visualizing the distribution for both service time and inter arrival time</li>
 </ul>
   
