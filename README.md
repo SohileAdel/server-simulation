@@ -42,7 +42,7 @@ You can compute the code running time by summing all the passed interarrival tim
 
 Every task generated has to be added to the queue with its service time and inter arrival time and we put this task in instance variable to use it later
 ![image](https://user-images.githubusercontent.com/98273362/175291871-dd4db8c4-f237-44af-bac0-205c2d101b08.png)
-![image](https://user-images.githubusercontent.com/98273362/175292039-188bf4b5-32dc-4db9-8a51-04bb1747e8f7.png)
+![image](https://user-images.githubusercontent.com/98273362/175308437-03d2069f-df1b-495b-821f-0fe9a7cf97d5.png)
 
 
 
@@ -53,7 +53,7 @@ and if the time left <= 0
  and the waiting queue has more than 1 task then you have to subtract the absolute value of the resulting left time from the next time left because the front element in the queue has to be dequeued abs(resultingTimeLeft) seconds ago 
 but if the waiting queue has only 1 task then subtract nothing
 ![image](https://user-images.githubusercontent.com/98273362/175292278-9dec0dab-968b-4f8b-89b0-e4fcb4099492.png)
-![image](https://user-images.githubusercontent.com/98273362/175292331-71a8bdfb-abef-425c-8fb0-97906bed3e50.png)
+![image](https://user-images.githubusercontent.com/98273362/175308641-f0455273-23d8-4984-b6c9-e7fcac012fee.png)
 
 
 
@@ -106,17 +106,33 @@ In the PlotTest class we import the Xchart library to test the distribution and 
 
 
 We need to sort the data to traverse only one time when counting the tasks of the same service time (rounded to the nearest integer) to plot a relation between the number of tasks and time in each task
-I used Merge Sort instead of Quick Sort because it has a better time complexity in the worst case
 
-Merge Sort: O(n log(n))
+Quick Sort: time average case O(n log(n) and O(log(n)) for space worst case unlike the Merge Sort that has O(n) for space
+![image](https://user-images.githubusercontent.com/98273362/175307234-b314cfb6-02a8-48eb-898f-6fef6f9904ac.png)
+![image](https://user-images.githubusercontent.com/98273362/175307367-fd61990e-1214-4c84-89d0-6569020102b5.png)
+![image](https://user-images.githubusercontent.com/98273362/175307461-0b390bbc-cbca-4848-bf49-80eccf536f95.png)
 
-Quick Sort: O(n^2)
 
-also Merge Sort is more eff
-![image](https://user-images.githubusercontent.com/98273362/175294621-c71260da-8073-4ea2-bd2f-f848eb84a349.png)
-![image](https://user-images.githubusercontent.com/98273362/175295815-4c75c419-d278-473b-8fb7-76480cf01a5f.png)
-![image](https://user-images.githubusercontent.com/98273362/175296278-746144fb-62d2-416b-9a6e-973591d7ca8b.png)
-![image](https://user-images.githubusercontent.com/98273362/175296289-f23b7c3e-2d1f-46d3-ad6b-37187d22b211.png)
+
+We count every number and skip the zero because each number has values after and before it 
+Except the zero, has values just after it
+So it wouldn’t be fair if we count zero and plot the data
+![image](https://user-images.githubusercontent.com/98273362/175307949-e4cd31aa-f530-4f7f-ada0-f6eb5c68ddfa.png)
+
+So definitely it the zero will count less than 1 and the plot will look like this
+![image](https://user-images.githubusercontent.com/98273362/175308026-a9dd86a7-42fa-40c6-b71e-94852dd63745.png)
+
+
+For this reason we have to skip the zero and this is the plot for service time 
+![image](https://user-images.githubusercontent.com/98273362/175308081-45383ab3-f4ef-44e5-ba89-8ab1d2e3e0b4.png)
+
+
+
+For inter arrival: 
+![image](https://user-images.githubusercontent.com/98273362/175308124-0782b989-b7d9-48ca-be5d-f9de07d02c02.png)
+
+
+
 
 
 
