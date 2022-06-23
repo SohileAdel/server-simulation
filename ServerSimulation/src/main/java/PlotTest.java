@@ -1,7 +1,6 @@
 import org.knowm.xchart.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class PlotTest {
     static MainClass mainClass = new MainClass();
