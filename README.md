@@ -32,7 +32,7 @@ Therefore
 		
     x = - ln(1 - y) * M
     
-  - ln(1 - y) * M   is the same as - ln(y) * M   because it’s the symmetric opposite
+   ln(1 - y) * M   is the same as  ln(y) * M   because it’s the symmetric opposite
  
 Therefore   x = - ln(y) * M    and  y  is the random variable in [0,1)
 
