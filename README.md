@@ -13,20 +13,31 @@ This is a complete computer algorithm that simulates a computer server with the 
   
   
 Exponential distribution formula:
+
 PDF: f(x) = 1/M * e^(-x/M) , for M is the average
+
 CDF: F(x) = 1 – e^(-x/M)
+
 so in order to get the x which is the service time
-Let y = F(x) 
-Therefore       
+
+Let y = F(x)
+
+Therefore   
+
     1 - y = e^(- x/M)
-		ln(1 - y) = ln(e^(- x/M))
-		- x/M = ln(1 - y)
-		x = - ln(1 - y) * M
+    
+    ln(1 - y) = ln(e^(- x/M))
+		
+    - x/M = ln(1 - y)
+		
+    x = - ln(1 - y) * M
     
 - ln(1 - y) * M   is the same as - ln(y) * M   because it’s the symmetric opposite
+- 
 Therefore   x = - ln(y) * M    and  y  is the random variable in [0,1)
 
 and the M is 25 and 20 in service time and inter arrival time respectively
+
 We also determine the max time in both to use to later
 
 ![image](https://user-images.githubusercontent.com/98273362/175291386-aca89b6f-d6dc-48c2-ad30-9a624493b57c.png)
@@ -50,6 +61,7 @@ Every task generated has to be added to the queue with its service time and inte
 Let the first time pass without decreasing the time left for the task to be finished in the each server
 and to decrease the time left to subtract the arrival time of the current task from the time left in this server
 and if the time left <= 0
+
  and the waiting queue has more than 1 task then you have to subtract the absolute value of the resulting left time from the next time left because the front element in the queue has to be dequeued abs(resultingTimeLeft) seconds ago 
 but if the waiting queue has only 1 task then subtract nothing
 ![image](https://user-images.githubusercontent.com/98273362/175292278-9dec0dab-968b-4f8b-89b0-e4fcb4099492.png)
