@@ -17,8 +17,9 @@ public class PlotTest {
         interArrivalArray = convertToArray(mainClass.interArrivalTimeList, interArrivalTimeListSize);
 
 
-        mergeSort(serviceTimeArray, serviceTimeListSize);
-        mergeSort(interArrivalArray, interArrivalTimeListSize);
+        quickSort(serviceTimeArray, 0, serviceTimeListSize - 1);
+        quickSort(interArrivalArray, 0, interArrivalTimeListSize - 1);
+
 
         plot("Service Time Distribution", "Time of task in seconds (rounded to the nearest integer)",
                 "Number of tasks", (int) mainClass.maxServiceTime, serviceTimeListSize, serviceTimeArray);
@@ -30,7 +31,6 @@ public class PlotTest {
     public static void plot(String title, String xAxisTitle, String yAxisTitle,
                             int countListArraySize, int dataArraySize, double[] dataArray) {
         XYChart chart = new XYChartBuilder().width(800).height(600).title(title).xAxisTitle(xAxisTitle).yAxisTitle(yAxisTitle).build();
-
         seconds = new int[countListArraySize];
         countList = new int[countListArraySize];
 
@@ -57,7 +57,6 @@ public class PlotTest {
         for (int i = 0; i < countListArraySize; i++) {
             seconds[i] = i + 1;
         }
-
         chart.addSeries("Data", seconds, countList);
         new SwingWrapper<XYChart>(chart).displayChart();
     }
@@ -70,42 +69,32 @@ public class PlotTest {
         return array;
     }
 
-    private static void mergeSort(double[] a, int n) {
-        if (n < 2) {
-            return;
+    public static void quickSort(double[] arr, int low, int high) {
+        if (low < high) {
+            int pi = partition(arr, low, high);
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
         }
-        int mid = n / 2;
-        double[] l = new double[mid];
-        double[] r = new double[n - mid];
-
-        for (int i = 0; i < mid; i++) {
-            l[i] = a[i];
-        }
-        for (int i = mid; i < n; i++) {
-            r[i - mid] = a[i];
-        }
-        mergeSort(l, mid);
-        mergeSort(r, n - mid);
-
-        merge(a, l, r, mid, n - mid);
     }
 
-    private static void merge(
-            double[] a, double[] l, double[] r, int left, int right) {
+    private static int partition(double[] arr, int low, int high) {
 
-        int i = 0, j = 0, k = 0;
-        while (i < left && j < right) {
-            if (l[i] <= r[j]) {
-                a[k++] = l[i++];
-            } else {
-                a[k++] = r[j++];
+        double pivot = arr[high];
+        int i = (low - 1);
+
+        for (int j = low; j <= high - 1; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
             }
         }
-        while (i < left) {
-            a[k++] = l[i++];
-        }
-        while (j < right) {
-            a[k++] = r[j++];
-        }
+        swap(arr, i + 1, high);
+        return (i + 1);
+    }
+
+    private static void swap(double[] arr, int i, int j) {
+        double temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
