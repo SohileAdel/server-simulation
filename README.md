@@ -10,3 +10,113 @@ This is a complete computer algorithm that simulates a computer server with the 
   <li>Plot visualizing the distribution for both service time and inter arrival time</li>
 </ul>
   
+  
+  
+Exponential distribution formula:
+PDF: f(x) = 1/M * e^(-x/M) , for M is the average
+CDF: F(x) = 1 – e^(-x/M)
+so in order to get the x which is the service time
+Let y = F(x) 
+Therefore       
+    1 - y = e^(- x/M)
+		ln(1 - y) = ln(e^(- x/M))
+		- x/M = ln(1 - y)
+		x = - ln(1 - y) * M
+    
+- ln(1 - y) * M   is the same as - ln(y) * M   because it’s the symmetric opposite
+Therefore   x = - ln(y) * M    and  y  is the random variable in [0,1)
+
+and the M is 25 and 20 in service time and inter arrival time respectively
+We also determine the max time in both to use to later
+
+![image](https://user-images.githubusercontent.com/98273362/175291386-aca89b6f-d6dc-48c2-ad30-9a624493b57c.png)
+![image](https://user-images.githubusercontent.com/98273362/175291502-1bab83eb-ab81-4801-8392-9c9fb75acfcd.png)
+
+
+
+You can compute the code running time by summing all the passed interarrival time
+![image](https://user-images.githubusercontent.com/98273362/175291693-7513f6f9-46e9-4a4b-803f-5ddb47a17598.png)
+
+
+
+
+Every task generated has to be added to the queue with its service time and inter arrival time and we put this task in instance variable to use it later
+![image](https://user-images.githubusercontent.com/98273362/175291871-dd4db8c4-f237-44af-bac0-205c2d101b08.png)
+![image](https://user-images.githubusercontent.com/98273362/175292039-188bf4b5-32dc-4db9-8a51-04bb1747e8f7.png)
+
+
+
+
+Let the first time pass without decreasing the time left for the task to be finished in the each server
+and to decrease the time left to subtract the arrival time of the current task from the time left in this server
+and if the time left <= 0
+ and the waiting queue has more than 1 task then you have to subtract the absolute value of the resulting left time from the next time left because the front element in the queue has to be dequeued abs(resultingTimeLeft) seconds ago 
+but if the waiting queue has only 1 task then subtract nothing
+![image](https://user-images.githubusercontent.com/98273362/175292278-9dec0dab-968b-4f8b-89b0-e4fcb4099492.png)
+![image](https://user-images.githubusercontent.com/98273362/175292331-71a8bdfb-abef-425c-8fb0-97906bed3e50.png)
+
+
+
+Then check in each server whether it’s ready to receive a new task or not
+![image](https://user-images.githubusercontent.com/98273362/175292428-258eb4b6-f5b2-476d-8655-7d0919bdbd11.png)
+![image](https://user-images.githubusercontent.com/98273362/175292522-851af275-e169-413a-9ed4-e08aded04df5.png)
+
+
+
+At the beginning we set the startCountingTheWaitingTasks to be the negative of numberOfComputers so we can start counting when the first numberOfComputers tasks pass and in our case it’s 2 
+![image](https://user-images.githubusercontent.com/98273362/175292728-affc945a-2c81-4ce2-86ba-db6c4f88ae9f.png)
+
+
+
+
+If the startCountingTheWaitingTasks >=0 then start adding the waiting time to ArrayList to sum all values later 
+![image](https://user-images.githubusercontent.com/98273362/175292958-9a5836bb-6478-4ef4-be17-648a3425df83.png)
+
+
+
+
+In the addToWaitingTime method we increase waiting time in each task in the queue 
+![image](https://user-images.githubusercontent.com/98273362/175293259-6df56237-68fc-4849-bd84-f597b5f54386.png)
+![image](https://user-images.githubusercontent.com/98273362/175293350-d5e9fe99-9483-4dc8-a990-6a8ce9a848d3.png)
+
+
+
+Each time increase startCountingTheWaitingTasks by 1
+and also count the total service time and inter arrival time to get the average 
+![image](https://user-images.githubusercontent.com/98273362/175293550-b31b3dce-91ea-4b80-ab1f-d69e8e8fafc4.png)
+
+
+
+
+At the end we compute the average of the service time, inter arrival time and the waiting time
+![image](https://user-images.githubusercontent.com/98273362/175293669-d58bbe70-83f0-47b3-9ce0-37b02a0ff256.png)
+![image](https://user-images.githubusercontent.com/98273362/175293746-926876ed-c2a0-47cb-9032-156e0c6f0306.png)
+
+
+
+Output:
+![image](https://user-images.githubusercontent.com/98273362/175293818-b0c26c21-b692-4513-8508-37246fb777be.png)
+
+
+
+In the PlotTest class we import the Xchart library to test the distribution and we call the main() method from the MainClass to plot the data generated from it 
+![image](https://user-images.githubusercontent.com/98273362/175294400-aff8d290-c920-4102-8da0-671f676cee0c.png)
+![image](https://user-images.githubusercontent.com/98273362/175295695-19b13089-1e36-4e5d-b72a-792ceac61a3d.png)
+
+
+
+We need to sort the data to traverse only one time when counting the tasks of the same service time (rounded to the nearest integer) to plot a relation between the number of tasks and time in each task
+I used Merge Sort instead of Quick Sort because it has a better time complexity in the worst case
+
+Merge Sort: O(n log(n))
+
+Quick Sort: O(n^2)
+
+![image](https://user-images.githubusercontent.com/98273362/175294621-c71260da-8073-4ea2-bd2f-f848eb84a349.png)
+![image](https://user-images.githubusercontent.com/98273362/175295815-4c75c419-d278-473b-8fb7-76480cf01a5f.png)
+
+
+
+
+
+
