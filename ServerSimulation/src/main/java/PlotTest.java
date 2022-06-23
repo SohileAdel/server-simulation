@@ -1,5 +1,4 @@
 import org.knowm.xchart.*;
-
 import java.util.ArrayList;
 
 public class PlotTest {
