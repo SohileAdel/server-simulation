@@ -22,8 +22,6 @@ public class PlotTest {
         mergeSort(serviceTimeArray, serviceTimeListSize);
         mergeSort(interArrivalArray, interArrivalTimeListSize);
 
-        System.out.println(Arrays.toString(serviceTimeArray));
-
         plot("Service Time Distribution", "Time of task in seconds (rounded to the nearest integer)",
                 "Number of tasks", (int) mainClass.maxServiceTime, serviceTimeListSize, serviceTimeArray);
         plot("Inter Arrival Time Distribution", "Arriving time of tasks in seconds (rounded to the nearest integer)",
