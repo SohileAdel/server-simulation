@@ -112,8 +112,11 @@ Merge Sort: O(n log(n))
 
 Quick Sort: O(n^2)
 
+also Merge Sort is more eff
 ![image](https://user-images.githubusercontent.com/98273362/175294621-c71260da-8073-4ea2-bd2f-f848eb84a349.png)
 ![image](https://user-images.githubusercontent.com/98273362/175295815-4c75c419-d278-473b-8fb7-76480cf01a5f.png)
+![image](https://user-images.githubusercontent.com/98273362/175296278-746144fb-62d2-416b-9a6e-973591d7ca8b.png)
+![image](https://user-images.githubusercontent.com/98273362/175296289-f23b7c3e-2d1f-46d3-ad6b-37187d22b211.png)
 
 
 
