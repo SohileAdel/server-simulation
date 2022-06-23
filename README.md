@@ -1,4 +1,4 @@
-In this program I wrote a complete computer algorithm that simulates a computer server with the following specifications:
+This is a complete computer algorithm that simulates a computer server with the following specifications:
 <ul>
   <li>The server consists of 2 computers.</li>
   <li>Tasks arrive at random intervals and attempt to use the available computer.</li>
