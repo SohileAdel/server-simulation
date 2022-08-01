@@ -148,7 +148,7 @@ So definitely it the zero will count less than 1 and the plot will look like thi
 ![image](https://user-images.githubusercontent.com/98273362/175308026-a9dd86a7-42fa-40c6-b71e-94852dd63745.png)
 
 
-For this reason we have to skip the zero and this is the plot for service time 
+For this reason we have to skip the zero and this is the plot for service time (running time = 100,000,000)
 
 ![image](https://user-images.githubusercontent.com/98273362/175308081-45383ab3-f4ef-44e5-ba89-8ab1d2e3e0b4.png)
 
