@@ -1,3 +1,8 @@
+# Server Simulation
+
+#### -- Project Status: Complete
+
+## Project Description
 This is a complete algorithm that simulates a computer server with the following specifications:
 <ul>
   <li>The server consists of 2 computers.</li>
@@ -10,8 +15,16 @@ This is a complete algorithm that simulates a computer server with the following
   <li>Plot visualizing the distribution for both service time and inter arrival time</li>
 </ul>
   
-  
-  
+### Methods Used
+* OOP
+* Simulation
+* Data Visualization
+
+### Technologies
+* Java
+* Maven, XChart
+
+## Details
 Exponential distribution formula:
 
 PDF: f(x) = 1/M * e^(-x/M) , for M is the average
